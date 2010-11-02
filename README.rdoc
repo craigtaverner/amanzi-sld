@@ -8,6 +8,71 @@ Amanzi:SLD is a simpler DSL designed to generate SLD documents, but using a
 very much simpler syntax.  Many common cases might be a single line only,
 while the simplest SLD is usually a dozen lines or more.
 
+=== What is SLD?
+
+There are great tutorials on the GeoServer wiki for SLD styling. Please take
+a look at {GeoServer Styling}[http://docs.geoserver.org/stable/en/user/styling/index.html]
+
+In brief, SLD is an XML syntax for specifying map layer styling. That is how
+to draw map layers.  This includes simple things like what color and
+thickness a line should be as well as more complex topics like applying the
+style only to geometries matching certain filters and combining styles to
+create interesting effects.  In principle it should be possible to create
+maps as good looking as one normally sees on sites like maps.google.com and
+openstreetmap.org.
+
+=== Why use Amanzi::SLD?
+
+Well, The very simplest document in Amanzi::SLD is three lines long, while the
+same one in normal XML is almost 30 lines long. Consider:
+
+  require 'amanzi/sld'
+  sld = Amanzi::SLD::Document.new('Test')
+  sld.add_line_symbolizer :stroke => '#3050e0'
+
+This will become the SLD document:
+
+  <?xml version="1.0" encoding="ISO-8859-1"?>
+  <StyledLayerDescriptor xmlns:xlink="http://www.w3.org/1999/xlink"
+  xsi:schemaLocation="http://www.opengis.net/sld
+  http://schemas.opengis.net/sld/1.0.0/StyledLayerDescriptor.xsd"
+  xmlns:ogc="http://www.opengis.net/ogc" version="1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.opengis.net/sld">
+      <NamedLayer>
+          <Name>Test</Name>
+          <UserStyle>
+              <Name>Test</Name>
+              <FeatureTypeStyle>
+                  <Rule>
+                      <LineSymbolizer>
+                          <Stroke>
+                              <CssParameter
+  name="stroke">#000000</CssParameter>
+                              <CssParameter
+  name="stroke-width">1</CssParameter>
+                          </Stroke>
+                      </LineSymbolizer>
+                  </Rule>
+              </FeatureTypeStyle>
+              <FeatureTypeStyle>
+                  <Rule>
+                      <LineSymbolizer>
+                          <Stroke>
+                              <CssParameter
+  name="stroke">#000000</CssParameter>
+                              <CssParameter
+  name="stroke-width">1</CssParameter>
+                          </Stroke>
+                      </LineSymbolizer>
+                  </Rule>
+              </FeatureTypeStyle>
+          </UserStyle>
+      </NamedLayer>
+  </StyledLayerDescriptor>
+
+== 
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
