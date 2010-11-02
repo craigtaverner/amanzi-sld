@@ -5,12 +5,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "amanzi-sld"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "craig.taverner@amanzitel.com"
+    gem.summary = "A Ruby DSL for simpler SLD creation for styling maps"
+    gem.description = "Map styles are often defined using SLD, or Style Layer Descriptor documents. These XML documents are very long, verbose and complex to maintain. Amanzi:SLD is a simpler DSL designed to generate SLD documents, but using a very much simpler syntax. Many common cases might be a single line only, while the simplest SLD is usually a dozen lines or more."
+    gem.email = "craig@amanzi.com"
     gem.homepage = "http://github.com/craigtaverner/amanzi-sld"
-    gem.authors = ["craig"]
+    gem.authors = ["Craig Taverner"]
     gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
+    gem.add_development_dependency "differ", ">= 0.1"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new

@@ -1,6 +1,12 @@
-= amanzi-sld
+= Amanzi::SLD
 
-Description goes here.
+A Ruby DSL for simpler SLD creation for styling maps
+
+Map styles are often defined using SLD, or Style Layer Descriptor documents.
+These XML documents are very long, verbose and complex to maintain. 
+Amanzi:SLD is a simpler DSL designed to generate SLD documents, but using a
+very much simpler syntax.  Many common cases might be a single line only,
+while the simplest SLD is usually a dozen lines or more.
 
 == Note on Patches/Pull Requests
  
@@ -14,4 +20,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 craig. See LICENSE for details.
+Copyright (c) 2010 Craig Taverner. See LICENSE for details.
