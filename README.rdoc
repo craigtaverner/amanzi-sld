@@ -47,10 +47,8 @@ This will become the SLD document:
                   <Rule>
                       <LineSymbolizer>
                           <Stroke>
-                              <CssParameter
-  name="stroke">#000000</CssParameter>
-                              <CssParameter
-  name="stroke-width">1</CssParameter>
+                              <CssParameter name="stroke">#000000</CssParameter>
+                              <CssParameter name="stroke-width">1</CssParameter>
                           </Stroke>
                       </LineSymbolizer>
                   </Rule>
@@ -59,10 +57,8 @@ This will become the SLD document:
                   <Rule>
                       <LineSymbolizer>
                           <Stroke>
-                              <CssParameter
-  name="stroke">#000000</CssParameter>
-                              <CssParameter
-  name="stroke-width">1</CssParameter>
+                              <CssParameter name="stroke">#000000</CssParameter>
+                              <CssParameter name="stroke-width">1</CssParameter>
                           </Stroke>
                       </LineSymbolizer>
                   </Rule>
@@ -71,7 +67,50 @@ This will become the SLD document:
       </NamedLayer>
   </StyledLayerDescriptor>
 
-== 
+=== How to get started?
+
+The easiest way to get started would be to install the ruby gem using:
+
+  sudo gem install amanzi-sld
+
+There is a chance that the gem is not yet available, in qhich case your next
+option is to download from source using:
+
+  git clone git://github.com/craigtaverner/amanzi-sld.git
+  cd amanzi-sld
+  rake install
+
+Then you can create your ruby script with an appropriate content, for
+example:
+
+  require 'rubygems'
+  require 'amanzi/sld'
+
+  sld = Amanzi::SLD::Document.new 'My SLD Document'
+
+  sld.add_line_symbolizer
+    :stroke => '#004400',
+    :stroke_width => 2,
+    :geometry => 'LineString'
+
+  sld.add_polygon_symbolizer
+    :stroke => '#004400',
+    :stroke_width => 2,
+    :geometry => 'Polygon'
+
+=== Advanced options
+
+I will write this up when I get a chance. In the meantime I recommend
+looking at the more complex examples in the examples/ directory. Better yet,
+run them and see what the output looks like.
+* test.rb
+  * This actually uses several redundant combinations of syntax to test the SLD as well as the underlying XML DSL on which it is based
+  * This is also run by the normal rake tests, called from test/test_file.rb
+  * The file test.sld is the expected output which the test will compare with
+* osm.rb
+  * This advanced example works with the open street map model imported into Neo4j Spatial, and then exposed as one or more layers to GeoServer or uDig
+* osm_highway_shp.rb
+  * This example works with the highway Shapefile generated from OSM data by CloudMade. See the {CloudMade downloads}[http://downloads.cloudmade.com]
 
 == Note on Patches/Pull Requests
  
