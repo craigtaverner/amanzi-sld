@@ -23,8 +23,18 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
+     "amanzi-sld.gemspec",
+     "examples/osm.rb",
+     "examples/osm_highway_shp.rb",
+     "examples/test.rb",
+     "examples/test.sld",
      "lib/amanzi-sld.rb",
-     "test/helper.rb"
+     "lib/amanzi/sld.rb",
+     "lib/amanzi/xml.rb",
+     "test/helper.rb",
+     "test/test_file.rb",
+     "test/test_sld.rb",
+     "test/test_xml.rb"
   ]
   s.homepage = %q{http://github.com/craigtaverner/amanzi-sld}
   s.rdoc_options = ["--charset=UTF-8"]
